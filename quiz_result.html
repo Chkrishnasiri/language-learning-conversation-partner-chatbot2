@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+```
+<title>Quiz Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/learn.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<h1>🏆 Quiz Result</h1>
+
+<div class="lesson-card">
+
+    <h2 class="{{ status_class }}">
+        {{ status }}
+    </h2>
+
+    <br>
+
+    <h2>
+        Score: {{ score }}/2
+    </h2>
+
+    <br>
+
+    {% for result in results %}
+
+        <p style="font-size:22px;">
+            {{ result }}
+        </p>
+
+        <br>
+
+    {% endfor %}
+
+    <h2>
+        ⭐ XP: {{ user.xp }}
+    </h2>
+
+    <h2>
+        🔥 Streak: {{ user.streak }}
+    </h2>
+
+</div>
+
+<br>
+
+<a href="/dashboard" class="back-btn">
+    ⬅ Back To Dashboard
+</a>
+```
+
+</div>
+
+</body>
+</html>

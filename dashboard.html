@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+
+<h2>🌍 Language Learning App</h2>
+
+<div>
+    ⭐ XP: {{ user.xp }}
+    &nbsp;&nbsp;
+    🔥 Streak: {{ user.streak }}
+</div>
+
+
+</div>
+
+<div style="margin-top:10px; margin-left:20px;">
+
+
+<h3>🏅 Level {{ level }}</h3>
+
+<div style="
+width:300px;
+height:20px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;">
+
+</div>
+
+
+</div>
+
+<div class="container">
+
+<h1>Welcome {{ user.name }} 🎉</h1>
+
+<h3>
+{% if user.xp < 100 %}
+    🥉 Beginner
+{% elif user.xp < 250 %}
+    🥈 Intermediate
+{% elif user.xp < 500 %}
+    🥇 Advanced
+{% else %}
+    👑 Master
+{% endif %}
+</h3>
+
+<h3>Learn From English To:</h3>
+
+<form action="/save-language" method="POST">
+
+    <select name="language">
+
+        <option value="Hindi" {% if user.selected_language=="Hindi" %}selected{% endif %}>Hindi</option>
+        <option value="Telugu" {% if user.selected_language=="Telugu" %}selected{% endif %}>Telugu</option>
+        <option value="Tamil" {% if user.selected_language=="Tamil" %}selected{% endif %}>Tamil</option>
+        <option value="Kannada" {% if user.selected_language=="Kannada" %}selected{% endif %}>Kannada</option>
+        <option value="Malayalam" {% if user.selected_language=="Malayalam" %}selected{% endif %}>Malayalam</option>
+        <option value="Marathi" {% if user.selected_language=="Marathi" %}selected{% endif %}>Marathi</option>
+        <option value="Gujarati" {% if user.selected_language=="Gujarati" %}selected{% endif %}>Gujarati</option>
+        <option value="Bengali" {% if user.selected_language=="Bengali" %}selected{% endif %}>Bengali</option>
+        <option value="Punjabi" {% if user.selected_language=="Punjabi" %}selected{% endif %}>Punjabi</option>
+
+    </select>
+
+    <button type="submit">
+        Save Language
+    </button>
+
+</form>
+
+<br>
+<hr>
+<br>
+
+<h2>🌍 AI Translator</h2>
+
+<form action="/translate" method="POST">
+
+    <input
+    type="text"
+    name="text"
+    placeholder="Enter English Sentence"
+    required
+    style="width:400px;padding:12px;">
+
+    <button type="submit">
+        Translate
+    </button>
+
+    <button type="button" onclick="startSpeech()">
+        🎤 Speak
+    </button>
+
+</form>
+
+{% if original_text %}
+
+<div class="result-card">
+
+    <h3>Original Text</h3>
+    <p class="original">{{ original_text }}</p>
+
+    <h3>Corrected Text</h3>
+    <p class="corrected">{{ corrected_text }}</p>
+
+    <h3>Translated Text</h3>
+    <p class="translated">{{ translated_text }}</p>
+
+    <form action="/speak" method="POST">
+
+        <input
+        type="hidden"
+        name="translated_text"
+        value="{{ translated_text }}">
+
+        <button type="submit" class="listen-btn">
+            🔊 Listen Translation
+        </button>
+
+    </form>
+
+    <br>
+
+    <audio controls>
+        <source
+        src="{{ url_for('static', filename='audio/output.mp3') }}?v={{ user.xp }}"
+        type="audio/mpeg">
+    </audio>
+
+</div>
+
+{% endif %}
+
+<br>
+
+<h3>Your Learning Modules</h3>
+
+<div class="cards">
+
+    <a href="/learn" class="card-link">
+        <div class="card">
+            👋 Greetings
+        </div>
+    </a>
+
+    <a href="/family" class="card-link">
+    <div class="card">
+        👨‍👩‍👧 Family
+    </div>
+
+    <a href="/food" class="card-link">
+    <div class="card">
+        🍲 Food
+    </div>
+</a>
+
+
+    <a href="/travel" class="card-link">
+    <div class="card">
+        ✈ Travel
+    </div>
+</a>
+
+    <a href="/shopping" class="card-link">
+    <div class="card">
+        🛒 Shopping
+    </div>
+</a>
+
+    <a href="/weather" class="card-link">
+    <div class="card">
+        🌦 Weather
+    </div>
+</a>
+
+</div>
+
+
+</div>
+
+<script>
+
+function startSpeech() {
+
+    alert("Mic Started");
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "en-US";
+
+    recognition.start();
+
+    recognition.onresult = function(event) {
+
+        document.querySelector(
+            'input[name="text"]'
+        ).value = event.results[0][0].transcript;
+
+    };
+
+    recognition.onerror = function(event) {
+
+        alert("Error: " + event.error);
+
+    };
+
+}
+
+</script>
+
+</body>
+</html>

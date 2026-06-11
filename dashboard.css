@@ -1,0 +1,137 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+.navbar{
+    background:#58cc02;
+    color:white;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.container{
+    padding:40px;
+}
+
+h1{
+    margin-bottom:30px;
+}
+
+h3{
+    margin-top:20px;
+    margin-bottom:15px;
+}
+
+select{
+    width:350px;
+    padding:12px;
+    border-radius:10px;
+    border:2px solid #ccc;
+    font-size:16px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+button{
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Save Language Button */
+form button[type="submit"]{
+    background:#4CAF50;
+    color:white;
+}
+
+form button[type="submit"]:hover{
+    background:#388E3C;
+    transform:scale(1.05);
+}
+
+/* Voice Button */
+button[onclick="startSpeech()"]{
+    background:#FF9800;
+    color:white;
+}
+
+button[onclick="startSpeech()"]:hover{
+    background:#F57C00;
+    transform:scale(1.05);
+}
+
+.result-card{
+    background:white;
+    padding:30px;
+    margin-top:25px;
+    border-radius:20px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.original{
+    color:#2196F3;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.corrected{
+    color:#4CAF50;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.translated{
+    color:#E91E63;
+    font-size:35px;
+    font-weight:bold;
+}
+
+.listen-btn{
+    background:#9C27B0;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+}
+
+.listen-btn:hover{
+    background:#7B1FA2;
+}
+
+audio{
+    margin-top:15px;
+    width:100%;
+}

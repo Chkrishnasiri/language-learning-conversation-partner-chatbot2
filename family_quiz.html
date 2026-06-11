@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Family Quiz</title>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>👨‍👩‍👧 Family Quiz</h1>
+
+<form action="/check-family-quiz" method="POST">
+
+<h3>Father means?</h3>
+
+<input type="radio" name="q1" value="తండ్రి"> తండ్రి<br>
+<input type="radio" name="q1" value="తల్లి"> తల్లి<br><br>
+
+<h3>Mother means?</h3>
+
+<input type="radio" name="q2" value="తల్లి"> తల్లి<br>
+<input type="radio" name="q2" value="తండ్రి"> తండ్రి<br><br>
+
+<button type="submit">
+Submit Quiz
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

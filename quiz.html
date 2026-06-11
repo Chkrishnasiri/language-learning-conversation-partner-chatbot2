@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+<title>Quiz</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/learn.css') }}">
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+<h1>📝 Daily Quiz</h1>
+
+<form action="/check-quiz" method="POST">
+
+    <div class="lesson-card">
+
+        <h3>1. What is the meaning of "Hello"?</h3>
+
+        <input type="radio" name="q1" value="Namaste"> Namaste<br><br>
+        <input type="radio" name="q1" value="Food"> Food<br><br>
+
+    </div>
+
+    <div class="lesson-card">
+
+        <h3>2. What is the meaning of "Thank You"?</h3>
+
+        <input type="radio" name="q2" value="Dhanyavad"> Dhanyavad<br><br>
+        <input type="radio" name="q2" value="Water"> Water<br><br>
+
+    </div>
+
+    <div class="lesson-card">
+
+        <h3>3. What is the meaning of "Friend"?</h3>
+
+        <input type="radio" name="q3" value="Dost"> Dost<br><br>
+        <input type="radio" name="q3" value="Book"> Book<br><br>
+
+    </div>
+
+    <div class="lesson-card">
+
+        <h3>4. What is the meaning of "Water"?</h3>
+
+        <input type="radio" name="q4" value="Pani"> Pani<br><br>
+        <input type="radio" name="q4" value="Food"> Food<br><br>
+
+    </div>
+
+    <div class="lesson-card">
+
+        <h3>5. What is the meaning of "Food"?</h3>
+
+        <input type="radio" name="q5" value="Khana"> Khana<br><br>
+        <input type="radio" name="q5" value="Travel"> Travel<br><br>
+
+    </div>
+
+    <button type="submit" class="complete-btn">
+        🚀 Submit Quiz
+    </button>
+
+</form>
+
+<br>
+
+<a href="/dashboard" class="back-btn">
+    ⬅ Back To Dashboard
+</a>
+
+
+</div>
+
+</body>
+</html>

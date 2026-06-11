@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Travel Quiz</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/learn.css') }}">
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+    <h1 class="quiz-title">
+        ✈ Travel Quiz
+    </h1>
+
+    <form action="/check-travel-quiz" method="POST">
+
+        <div class="question">
+
+            <h3>Bus means?</h3>
+
+            <input type="radio" name="q1" value="బస్సు"> బస్సు <br><br>
+
+            <input type="radio" name="q1" value="రైలు"> రైలు
+
+        </div>
+
+        <div class="question">
+
+            <h3>Train means?</h3>
+
+            <input type="radio" name="q2" value="రైలు"> రైలు <br><br>
+
+            <input type="radio" name="q2" value="బస్సు"> బస్సు
+
+        </div>
+      
+
+        <button type="submit" class="submit-btn">
+            Submit Quiz
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
